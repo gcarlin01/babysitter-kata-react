@@ -17,3 +17,6 @@ Feature:
 As a babysitter
 In order to get paid for 1 night of work
 I want to calculate my nightly charge
+
+##  Get Started 
+npm run start

@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {useEffect, useState} from 'react'
+ 
 function App() {
+  const [startTime, setStartTime] = useState('')
+  const [startError, setStartError] = useState(false)
+
+  useEffect(() => {
+    if(startTime === "4") {
+      setStartError(true)
+    }
+    else {
+      setStartError(false)
+    }
+  }, [startTime])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div>
+    <input aria-label="start-input" value={startTime} onChange={(event) => setStartTime(event.target.value)}/>
+    {startError && <h1>Cannot start before 5</h1>}
+  </div>
+  )
 }
 
 export default App;
